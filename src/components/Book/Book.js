@@ -10,7 +10,7 @@ const Book = ({book, addToCart}) => {
         <div className='book col-lg-4'>
             <img src={image} alt="" />
             <div className="book-info">
-                <h2>{title}</h2>
+                <h4>{title}</h4>
                 <p>Price: $ {price.value}</p>
             </div>
             <Button onClick={()=> addToCart(book)}>Add to Cart  

@@ -17,9 +17,7 @@ const Library = () => {
     },[]);
     
     const addToCart = book =>{
-        console.log(book)
         const newCart = [...cart, book];
-        console.log(newCart.ISBN)
         setCart(newCart);
         if(newCart.length === 5) {
             setCart(cart);
@@ -27,12 +25,13 @@ const Library = () => {
         }
     }
 
-    const randomChoose = (books) => {
-        const randomItem = books[Math.floor(Math.random() * books.length)];
+    const randomChoose = (cart) => {
+        const randomItem = cart[Math.floor(Math.random() * cart.length)];
         setCart(randomItem);
-        if(randomItem){
-            alert(randomItem.image, randomItem.title)
-        }
+        
+    }
+    if(randomItem){
+        alert(randomItem.title)
     }
 
     const resetCart = () => {
@@ -63,7 +62,7 @@ const Library = () => {
                         cart={item}
                         ></Cart>)
                 }
-                <Button onClick={()=> randomChoose(books)} className='mb-2 d-block'>Choose For Me</Button>
+                <Button onClick={()=> randomChoose(cart)} className='mb-2 d-block'>Choose For Me</Button>
                 <Button onClick={resetCart} className='mt-2 d-block'>Choose Again</Button>
             </div>
             </Col>
