@@ -54,8 +54,8 @@ const Library = () => {
                         cart={item}
                         ></Cart>)
                 }
-                <Button onClick={()=> randomChoose(books)} className='mb-2 d-inline-block'>Choose For Me</Button>
-                <Button onClick={resetCart} className='mt-2 d-inline-block'>Choose Again</Button>
+                <Button onClick={()=> randomChoose(books)} className='mb-2 d-block'>Choose For Me</Button>
+                <Button onClick={resetCart} className='mt-2 d-block'>Choose Again</Button>
             </div>
             </Col>
             </Row>
