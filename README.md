@@ -1,6 +1,6 @@
 # Boi Ghor - An online Library.
 
-This project was bootstrapped with [Boi Ghor](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Boi Ghor](https://boi-ghor-ns.netlify.app/).
 
 ## Available Scripts
 
