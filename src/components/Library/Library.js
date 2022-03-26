@@ -25,14 +25,15 @@ const Library = () => {
         }
     }
 
-    const randomChoose = (cart) => {
-        const randomItem = cart[Math.floor(Math.random() * cart.length)];
-        setCart(randomItem);
-        
-    }
-    if(randomItem){
-        alert(randomItem.title)
-    }
+    const randomChoose = (randomCart) => {
+        if(cart.length){
+            const random = Math.floor(Math.random() * randomCart.length);
+            const selectCart = [randomCart[random]]
+            setCart(selectCart);
+        }else {
+            alert('Please Choose any book first')
+        }
+     }
 
     const resetCart = () => {
         const newCart = [];
