@@ -6,7 +6,6 @@ import "./Cart.css";
 
 const Cart = ({ cart }) => {
   const { image, title } = cart;
-  console.log(cart);
   return (
     <div className="cart-info">
       <Table striped bordered hover>

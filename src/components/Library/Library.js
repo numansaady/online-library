@@ -20,6 +20,16 @@ const Library = () => {
         const newCart = [...cart, book];
         setCart(newCart);
     }
+
+    const randomChoose = (books) => {
+        const randomItem = books[Math.floor(Math.random() * books.length)];
+        setCart(randomItem)
+    }
+
+    const resetCart = () => {
+        const newCart = [];
+        setCart(newCart);
+    }
    
     return (
         <Container>
@@ -44,8 +54,8 @@ const Library = () => {
                         cart={item}
                         ></Cart>)
                 }
-                <Button className='mb-2'>Choose For Me</Button>
-                <Button>Choose Again</Button>
+                <Button onClick={()=> randomChoose(books)} className='mb-2 d-inline-block'>Choose For Me</Button>
+                <Button onClick={resetCart} className='mt-2 d-inline-block'>Choose Again</Button>
             </div>
             </Col>
             </Row>
