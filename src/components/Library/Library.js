@@ -17,13 +17,22 @@ const Library = () => {
     },[]);
     
     const addToCart = book =>{
+        console.log(book)
         const newCart = [...cart, book];
+        console.log(newCart.ISBN)
         setCart(newCart);
+        if(newCart.length === 5) {
+            setCart(cart);
+            alert('You can not select more than 4 books.')
+        }
     }
 
     const randomChoose = (books) => {
         const randomItem = books[Math.floor(Math.random() * books.length)];
-        setCart(randomItem)
+        setCart(randomItem);
+        if(randomItem){
+            alert(randomItem.image, randomItem.title)
+        }
     }
 
     const resetCart = () => {
@@ -34,7 +43,7 @@ const Library = () => {
     return (
         <Container>
             <Row>
-                <Col className='col-lg-9'>
+                <Col className='col-lg-9 order-lg-1 order-2'>
                     <div className="books-container row">
                         {
                             books.map(book => <Book 
@@ -45,7 +54,7 @@ const Library = () => {
                         }
                     </div>
                 </Col>
-            <Col className='col-lg-3'>
+            <Col className='col-lg-3 order-lg-2 order-1'>
             <div className="cart-container">
                 <h2>Selected Books</h2>
                 {
