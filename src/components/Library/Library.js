@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import Book from '../Book/Book';
+import Cart from '../Cart/Cart';
 import './Library.css';
+
 
 const Library = () => {
     const [books, setBooks] = useState([]);
@@ -17,21 +20,36 @@ const Library = () => {
         const newCart = [...cart, book];
         setCart(newCart);
     }
+   
     return (
-        <div className='library-container'>
-            <div className="books-container">
+        <Container>
+            <Row>
+                <Col className='col-lg-9'>
+                    <div className="books-container row">
+                        {
+                            books.map(book => <Book 
+                            key={book.ISBN}
+                            book={book}
+                            addToCart={addToCart}
+                            ></Book> )
+                        }
+                    </div>
+                </Col>
+            <Col className='col-lg-3'>
+            <div className="cart-container">
+                <h2>Selected Books</h2>
                 {
-                    books.map(book => <Book 
-                    key={book.ISBN}
-                    book={book}
-                    addToCart={addToCart}
-                    ></Book> )
+                    cart.map(item => <Cart
+                        key={item.ISBN}
+                        cart={item}
+                        ></Cart>)
                 }
+                <Button className='mb-2'>Choose For Me</Button>
+                <Button>Choose Again</Button>
             </div>
-            <div className="cart-containe">
-                <h2>{cart.length}</h2>
-            </div>
-        </div>
+            </Col>
+            </Row>
+        </Container>
     );
 };
 

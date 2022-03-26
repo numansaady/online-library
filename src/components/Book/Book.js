@@ -1,16 +1,22 @@
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import './Book.css';
 
 const Book = ({book, addToCart}) => {
     const {image, title, price} = book;
     return (
-        <div className='book'>
+        <div className='book col-lg-4'>
             <img src={image} alt="" />
             <div className="book-info">
                 <h2>{title}</h2>
                 <p>Price: $ {price.value}</p>
             </div>
-            <button onClick={()=> addToCart(book)}>Add to Cart</button>
+            <Button onClick={()=> addToCart(book)}>Add to Cart  
+            <FontAwesomeIcon className='ms-2' icon={faShoppingCart}/>
+            </Button>
+            
         </div>
     );
 };
